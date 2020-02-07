@@ -12,6 +12,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^0.5.0"
+    "vuepress": "^1.0.0-rc.1"
+  },
+  "dependencies": {
+    "vuepress-plugin-export": "^0.2.0"
   }
 }

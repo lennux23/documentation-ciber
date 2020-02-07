@@ -1,71 +1,80 @@
 ---
-title: Introducción
+title: SAM 
 ---
 
-# Introducción  
-El software desarrollado es un sistema que permite a las organizaciones organizar el tiempo y los recursos en la forma de gestión del Compliance de acuerdo a la norma [ISO19600](https://www.iso.org/standard/62342.html).
+# Requerimientos iniciales  
 
-Dicho sistema provee soluciones de cumplimientos legales en: 
-* Anticorrupción.
-* Protección de datos personales. _En progreso_.
-* Prevención de lavado de dinero. _En progreso_.
-* Subcontratación laboral. _En progreso_.
+## Configuración de Git
+El versionado del proyecto se lleva a cabo por medio del software `git`. Este software permite guardar una copia de cada modificación hecha en el sistema. Para poder hacer uso de `git` es necesario bajar el ejecutable e instalarlo de manera local en nuestro ordenador.
 
- 
-Ademas contara con un portal de noticias, un blog y conexión con sus redes sociales; entre otras cosas. 
+**Ver mas**
+* [¿qué es git?](https://es.wikipedia.org/wiki/Git)
 
-## Arquitectura general del proyecto
+### Instalar Git
+Primeramente hay que descargar e instalar el ejecutable de [git](https://git-scm.com/download/win).
 
-Por la complejidad del sistema, el código del proyecto se dividió en 3 sub-proyectos. La estructura general de los directorios quedó de la siguiente manera.
-
-```bash
-PAD
-  ├─ pad-client
-  ├─ pad-dashboard
-  └─ pad-server
-
+Una vez instalado ejecutar el comando en el simbolo de sistema de windows:
 ```
+git --version
+```
+En la pantalla debería de mostrarse algo parecido a: 
+```
+git version 2.15.0
+``` 
 
-Los 3 subproyectos se encuentran alojados dentro de [Gitlab](https://gitlab.com) en el grupo privado **PAD**, y cada uno cuenta con su propio repositorio.
+### Clonar el proyecto
+Para clonar el proyecto, y tener los archivos fuente en nuestra maquina, hay que usar ejecutar el comando `git clone <url_del_servidor_proyecto>`. Con esto el sistema descargará del repositorio la versión mas reciente del proyecto.
 
-**Ver también**
+**NOTA**: 
+`url_del_servidor_proyecto` es la ruta del repositorio donde se decidió guardar el proyecto. *Por ejemplo: https://github.com/liverpool/proyecto.git*
 
-* [Clonar e instalar por primera vez](/beggining/getting-started.html)
+## Maven
+Maven permite crear la estructura de directorios `“src”, “resources”, “lib”, etc.`, configurar los accesos a bases de datos y a otros repositorios; configurar un directorio para depositar los ficheros compilados `“.class”, “.jar”, etc`.
 
+### Configuración de Maven
+Para instalar Apache Maven en Windows, solo necesita descargar el archivo zip de [Maven](http://maven.apache.org), descomprimirlo en una carpeta y configurar las variables de entorno de Windows.
 
+Maven necesita tener instalado un [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) correspondiente a la versión de Maven instalada. Una vez hecha la instalación. se debe de configurar la variable de entorno `JAVA_HOME`.
 
--->Diagrama<-->
-
-### pad-client
-
-En este repositorio esta el código de la **página web**, en donde se detallan las características que puede ofrecer el sistema. Dicha página web también cuenta con un portal de noticias y blog, ademas de permitir ser el primer punto de contacto con el cliente, mediante un formulario de contacto.
-
-
-### pad-dashboard
-
-Aquí se almacena todo el código del **front-end**, el cual es el encargado de presentar el **sistema principal** de manera visual. La vista tiene como base la plantilla de pago [Vue paper dashboard PRO](https://demos.creative-tim.com/vue-paper-dashboard-pro/#/admin/overview). A su vez, esta plantilla tiene como base el framework _open source_ [ ElementUI](https://element.eleme.io/#/en-US/component/installation). 
-
-::: warning Toma en cuenta
-Durante el proceso de desarrollo, varios componentes base de la plantilla fueron alterados para ser adecuados a las necesidades propias del sistema. Por lo cual, la documentación de la plantilla podría estar desactualizada en alguno casos.
+::: tip
+* Maven 3.3+ requiere JDK 1.7+
+* Maven 3.2 requiere JDK 1.6+
+* Maven 3.0 / 3.1 requiere JDK 1.5+
 :::
 
-Para administrar la navegación entre pantallas se hace uso de la librería [Vue router](https://router.vuejs.org). Las peticiones al back-end, son llevadas a cabo por el cliente [axios](https://github.com/axios/axios), la cual es la librería líder dentro de desarrollos javascript. [Vuex](https://vuex.vuejs.org) por su parte es la encargada de administrar los datos, tomando como base el patron _state management_.
+Para revisar si la instalación y configuración de `Maven` fue exitosa, debes de abrir el simbolo de sistema de windows y ejecutar el comando:
+```
+mvn -v
+```
+El resultado deberá ser algo como lo siguiente:
 
+```
+Apache Maven 3.5.2 
+Maven home: /usr/local/Cellar/maven/3.5.2/libexec
+Java version: 1.8.0_152, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
+Default locale: es_MX, platform encoding: UTF-8
+OS name: "mac os x", version: "10.15.2", arch: "x86_64", family: "mac"
+```
+### Archivo pom.xml
+Dentro del fichero `pom.xml` (Proyect Object Model), se encuentra la configuración del proyecto. En este se  indican repositorios, dependencias (librerias java externas necesarias para ejecutar el proyecto); y los perfiles los cuales nos permitirán construir el WAR para cada entorno de desarrollo modificando únicamente un parametro en la línea de comandos.
 
-### pad-server
+### Perfilamiento en Maven
+Los perfiles de maven se declaran dentro del tag `<profiles>` en el archivo `pom.xml`. Este proyecto tiene 4 entornos configurados:
+* **desa**: genera el `WAR` que puede ser montado en un servidor local (Apache Tomee o Tomcat) en un entorno de desarrollo `Linux`.
+* **desawin**: genera el `WAR` que puede ser montado en un servidor local (Apache Tomee o Tomcat) en un entorno de desarrollo `Windows`.
+* **test**: genera el `WAR` que puede ser montado en el servidor `WAS` de QA de Liverpool. 
+* **prod**: genera el `WAR` que puede ser montado en el servidor `WAS` de Producción de Liverpool. 
 
-El código del **back-end** del sistema principal se encuentra en este respositorio. Parte del proyecto _open source_ [ rest](https://github.com/diegohaz/rest), el cual tiene pre configurado algunas características tales como: 
+**NOTA**: Parametros tales como los *endpoint* de los servicios web y la ruta donde se almacenarán los logs, se configuran de manera automática.
 
-* Manejo de sesiones.
-* Validación de peticiones.
-* Paginación.
-* API de reseto de password.
-* API de login usando redes sociales.
+# Procedimiento de instalación
+### Generando WAR
+Una vez que definamos para que entorno deseamos construir nuestro archivo WAR, basta con ejecutar el comando
 
-Como base toma [expressjs](http://expressjs.com), la cual es una libreria para aplicaciones web, y tiene como _core_ a `Nodejs`. Toda la información se consolida en [mongoDB Atlas](https://www.mongodb.com/cloud/atlas), es decir hacemos uso del servicio en la nube para base de datos de `mongoDB` ([DBaaS](https://www.stratoscale.com/blog/dbaas/what-is-database-as-a-service/)). 
-
-Para poder interacuar con la base de datos, requerimos de la libreria [mongoose](https://mongoosejs.com), con la cual extendemos las funcionalidades básicas del driver por defecto de `mongoDB`. Las sesiones son administradas usando el estandar JSON Web Token ([JWT](https://jwt.io/introduction/)), que permite el flujo de la información entre aplicaciones de forma segura.
-
-**Ver también**
-
-* [Listado completo de plugins](/beggining/getting-started.html)
+```bash
+mvn clean package -f "<ruta_local>/SAM/SAM Produccion/pom.xml" -P<profile>
+```
+Donde
+* `<ruta_local>`: es la ruta completa donde se encuentra descargado el proyecto. Por ejemplo: *"C:/Users/SAM/SAM Produccion/pom.xml"*
+* `<profile>`: es el perfil que queremos usar para la construción del WAR. Por ejemplo, si queremos construir nuestro paquete para producción sería : *mvn clean package -f "<ruta_local>/SAM/SAM Produccion/pom.xml" -Pprod*

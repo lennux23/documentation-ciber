@@ -1,30 +1,21 @@
 module.exports = {
-  title: 'Proyecto PAD',
-  description: "Documentación técnica PAD ",
+  title: 'Proyecto SAM',
+  description: "Documentación técnica SAM ",
   markdown: {
-    lineNumbers: true 
+    lineNumbers: false 
   },
+  plugins: ['vuepress-plugin-export'],
   themeConfig:{
     nav: [
-        { text: 'COUNTER', link: '/beggining/' },
-        { text: 'GUIDE', link: '/guide/' },
+        { text: 'SAM', link: '/beggining/' },
     ],
     sidebar: [
         {
-          title: 'Inicio',
+          title: 'SAM',
           collapsable: false,
           children: [
             '/beggining/introduction',
             '/beggining/getting-started',
-            '/beggining/standars-app'
-          ]
-        },
-        {
-          title: 'API Guide',
-          collapsable: false,
-          children: [
-              '/guide/guide',
-              '/guide/api'
           ]
         }
     ]

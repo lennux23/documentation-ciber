@@ -5,5 +5,5 @@ actionLink: /beggining/introduction
 features:
 - title: Objectivo
   details: Permitir el desarrollo del sistema de manera controlada y sostenible. 
-footer: Developed using VuePress by Alejandro Xochihua
+footer: Redactado por Cibercom
 ---

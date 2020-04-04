@@ -1,80 +1,51 @@
 ---
-title: SAM 
+title: Introduccion e instalación 
 ---
 
-# Requerimientos iniciales  
+# Bootstrap 4  
 
-## Configuración de Git
-El versionado del proyecto se lleva a cabo por medio del software `git`. Este software permite guardar una copia de cada modificación hecha en el sistema. Para poder hacer uso de `git` es necesario bajar el ejecutable e instalarlo de manera local en nuestro ordenador.
+## ¿Qué es Bootstrap?
+Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales. A diferencia de muchos frameworks web, solo se ocupa del desarrollo front-end.
 
-**Ver mas**
-* [¿qué es git?](https://es.wikipedia.org/wiki/Git)
+**Ver mas sobre Bootstrap**
+* [¿Qué es Bootstrap 4?](https://es.wikipedia.org/wiki/Bootstrap_(framework))
 
-### Instalar Git
-Primeramente hay que descargar e instalar el ejecutable de [git](https://git-scm.com/download/win).
+## Instalación
+Primero hay que entrar a la pagina oficial de [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/).
 
-Una vez instalado ejecutar el comando en el simbolo de sistema de windows:
+Ya que estemos dentro de la pagina iremos a **Starter template** una vez ahí bastará con copiar el código y pergarlo en el HTML de nuestro proyecto, la plantilla es la siguiente:
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
 ```
-git --version
-```
-En la pantalla debería de mostrarse algo parecido a: 
-```
-git version 2.15.0
-``` 
 
-### Clonar el proyecto
-Para clonar el proyecto, y tener los archivos fuente en nuestra maquina, hay que usar ejecutar el comando `git clone <url_del_servidor_proyecto>`. Con esto el sistema descargará del repositorio la versión mas reciente del proyecto.
+Pegamos la planilla en nuetstro ducumento .index y listo, <br>
+ ¡Ya podemos comenzar a usar! :smiley:  
 
-**NOTA**: 
-`url_del_servidor_proyecto` es la ruta del repositorio donde se decidió guardar el proyecto. *Por ejemplo: https://github.com/liverpool/proyecto.git*
+#### *Nota importante: Se necesita internet para cargar la libreria en este método.*
 
-## Maven
-Maven permite crear la estructura de directorios `“src”, “resources”, “lib”, etc.`, configurar los accesos a bases de datos y a otros repositorios; configurar un directorio para depositar los ficheros compilados `“.class”, “.jar”, etc`.
+## Otra forma de instalar
+Existe otra manera de utilizar Bootstrap 4, se esta manera descargaremos los archivos desde la página y los agregaremos a la carpeta de nuestro proyecto.
+ [Descarga los documentos desde esta página.](https://getbootstrap.com/docs/4.4/getting-started/download/)
 
-### Configuración de Maven
-Para instalar Apache Maven en Windows, solo necesita descargar el archivo zip de [Maven](http://maven.apache.org), descomprimirlo en una carpeta y configurar las variables de entorno de Windows.
-
-Maven necesita tener instalado un [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) correspondiente a la versión de Maven instalada. Una vez hecha la instalación. se debe de configurar la variable de entorno `JAVA_HOME`.
-
-::: tip
-* Maven 3.3+ requiere JDK 1.7+
-* Maven 3.2 requiere JDK 1.6+
-* Maven 3.0 / 3.1 requiere JDK 1.5+
-:::
-
-Para revisar si la instalación y configuración de `Maven` fue exitosa, debes de abrir el simbolo de sistema de windows y ejecutar el comando:
-```
-mvn -v
-```
-El resultado deberá ser algo como lo siguiente:
-
-```
-Apache Maven 3.5.2 
-Maven home: /usr/local/Cellar/maven/3.5.2/libexec
-Java version: 1.8.0_152, vendor: Oracle Corporation
-Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
-Default locale: es_MX, platform encoding: UTF-8
-OS name: "mac os x", version: "10.15.2", arch: "x86_64", family: "mac"
-```
-### Archivo pom.xml
-Dentro del fichero `pom.xml` (Proyect Object Model), se encuentra la configuración del proyecto. En este se  indican repositorios, dependencias (librerias java externas necesarias para ejecutar el proyecto); y los perfiles los cuales nos permitirán construir el WAR para cada entorno de desarrollo modificando únicamente un parametro en la línea de comandos.
-
-### Perfilamiento en Maven
-Los perfiles de maven se declaran dentro del tag `<profiles>` en el archivo `pom.xml`. Este proyecto tiene 4 entornos configurados:
-* **desa**: genera el `WAR` que puede ser montado en un servidor local (Apache Tomee o Tomcat) en un entorno de desarrollo `Linux`.
-* **desawin**: genera el `WAR` que puede ser montado en un servidor local (Apache Tomee o Tomcat) en un entorno de desarrollo `Windows`.
-* **test**: genera el `WAR` que puede ser montado en el servidor `WAS` de QA de Liverpool. 
-* **prod**: genera el `WAR` que puede ser montado en el servidor `WAS` de Producción de Liverpool. 
-
-**NOTA**: Parametros tales como los *endpoint* de los servicios web y la ruta donde se almacenarán los logs, se configuran de manera automática.
-
-# Procedimiento de instalación
-### Generando WAR
-Una vez que definamos para que entorno deseamos construir nuestro archivo WAR, basta con ejecutar el comando
-
-```bash
-mvn clean package -f "<ruta_local>/SAM/SAM Produccion/pom.xml" -P<profile>
-```
-Donde
-* `<ruta_local>`: es la ruta completa donde se encuentra descargado el proyecto. Por ejemplo: *"C:/Users/SAM/SAM Produccion/pom.xml"*
-* `<profile>`: es el perfil que queremos usar para la construción del WAR. Por ejemplo, si queremos construir nuestro paquete para producción sería : *mvn clean package -f "<ruta_local>/SAM/SAM Produccion/pom.xml" -Pprod*
+ Primero descarga los archivos Compiled CSS and JS y luego Source files el BootstrapCDN lo puedes llamar desde el link en la pagina en la secciòn BootstrapCDN.

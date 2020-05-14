@@ -16,9 +16,9 @@ Las utilidades incluyen soporte para un ancho en 25%, 50%, 75%, y 100% por defec
       <div class="h-50 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 50%</div>
       <div class="h-75 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 75%</div>
       <div class="h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 100%</div>
-    </div>
+</div>
 ```
-![](./../../img/heigth.png)
+<altos></altos>
 ## Anchura
 - Width 25%
 - Width 50%
@@ -30,4 +30,5 @@ Las utilidades incluyen soporte para un ancho en 25%, 50%, 75%, y 100% por defec
 <div class="w-75 p-3" style="background-color: #eee;">Width 75%</div>
 <div class="w-100 p-3" style="background-color: #eee;">Width 100%</div>
 ```
-![](./../../img/width.png)
+<anchos></anchos>
+<br>

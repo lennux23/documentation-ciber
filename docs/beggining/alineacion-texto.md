@@ -4,8 +4,6 @@ title: Alineación de texto
 
 ## Alineación de textos con Bootstrap
 
-<prueba> </prueba>
-
 Tenemos tres posibilidades de clases para alinear el texto en Bootstrap 4 se explican por si mismas:
 
 - alinearse a la izquierda

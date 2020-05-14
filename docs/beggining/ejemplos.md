@@ -20,6 +20,7 @@ Ejemplo:
 </div>
 </form>
 ```
+<usuario></usuario>
 El paso siguiente sera hacer un boton, usaremos las clases .btn .btn-primary para mejorar la presentación , estará dentro de un ``<div>`` con la clase ``.form-group`` y lo metemos dentro de la etiqueta ``<form>``
 ```html
  <div class="form-group">
@@ -28,6 +29,7 @@ El paso siguiente sera hacer un boton, usaremos las clases .btn .btn-primary par
     </div>
 </div>
 ```
+<usuario2></usuario2>
 El proceso realizado en los pasos anteriores estará dentro de 
 ``<div class='card'>``
 El resultado será el siguiente:
@@ -54,6 +56,7 @@ El resultado será el siguiente:
     </form>
 </div>
 ```
+<usuario3></usuario3>
 A continuación agregaremos una imagen y un ``<hr>`` que hemos estilizado para dar un mejor aspecto, va al inicio dentro de nuestra tarjeta. Nota: Con este proceso también estamos dando el tamaño deseado a la imagen
 ```html
   <img src="descarga.png" alt="User Icon" class="img-fluid imagen-logo align-self-center" style="height: 150px;"/>

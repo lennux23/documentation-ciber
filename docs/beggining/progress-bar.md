@@ -27,7 +27,7 @@ Estos son algunos ejemplos:
   <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 ```
-![](../../img/progress.png)
+<progressbar></progressbar>
 
 ## Etiquetas
 Puedes agregar etiquetas colocando exto dentro de ``.pogress.bar``.
@@ -36,7 +36,7 @@ Puedes agregar etiquetas colocando exto dentro de ``.pogress.bar``.
   <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
 </div>
 ```
-![](../../img/progress2.png)
+<progressbar2></progressbar2>
 
 ## Cambiar fondo
 Podemos utilizar nuestras clases de utilidad para cambiar los colores.
@@ -54,7 +54,7 @@ Podemos utilizar nuestras clases de utilidad para cambiar los colores.
   <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 ```
-![](../../img/progress3.png)
+<progressbar3></progressbar3>
 
 ## Barras multiples
 Podemos tener varias barras en un ``progress-bar`` si es que nos es necesario.
@@ -65,8 +65,7 @@ Podemos tener varias barras en un ``progress-bar`` si es que nos es necesario.
   <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 ```
-![](../../img/progress4.png)
-
+<progressbar4></progressbar4>
 ## Rayas animadas
 El degradado rayadose puede animar. Agregue ``.progress-bar-animateda`` a ``.progress-bar``para animar las franjas de derecha a izquierda a través de animaciones CSS3.
 ```html
@@ -74,4 +73,5 @@ El degradado rayadose puede animar. Agregue ``.progress-bar-animateda`` a ``.pro
   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 </div>
 ```
-![](../../img/progress5.png)
+<progressbar5></progressbar5>
+

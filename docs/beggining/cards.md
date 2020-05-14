@@ -22,7 +22,7 @@ Construidas con flexbox, ofrecen una fácil alineación y se mezclan bien con ot
   </div>
 </div>
 ```
-![](../../img/card.png)
+<tarjeta></tarjeta>
 
 ## Títulos, texto y enlaces.
 Los títulos de las tarjetas se usan agregando ``.card-title`` a una ``<h>``etiqueta. Del mismo modo, los enlaces se agregan y se colocan uno al lado del otro al agregarlos .card-linka una ``<a>``etiqueta.
@@ -39,5 +39,5 @@ Los subtítulos se usan agregando un ``.card-subtitle`` a una ``<h>``etiqueta. S
   </div>
 </div>
 ```
-![](../../img/card-2.png)
+<card2></card2>
 

@@ -45,7 +45,7 @@ En este caso le estamos añadiento botones donde los estamos utilizando para dar
   <textarea class="form-control" aria-label="With textarea"></textarea>
 </div>
 ```
-![](../../img/int-group.png)
+<inputgroup></inputgroup>
 ## Dimensionamiento
 Puedres agregar clases a ``.input-group`` y el contenido dentro se redimensionará automáticamente, sin necesidad de repetir las clases de tamaño de control de formulario en cada elemento.  
 
@@ -72,4 +72,4 @@ Puedres agregar clases a ``.input-group`` y el contenido dentro se redimensionar
   <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 ```
-![](../../img/int-2.png)
+<inputgroup2></inputgroup2>

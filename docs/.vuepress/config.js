@@ -6,26 +6,26 @@ module.exports = {
       {
         rel: "stylesheet",
         href:
-          "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      }
-    ]
+          "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
+      },
+    ],
   ],
   description: "Documentación técnica Boostrap 4 ",
   markdown: {
-    lineNumbers: false
+    lineNumbers: false,
   },
   plugins: ["vuepress-plugin-export"],
   themeConfig: {
     nav: [
       { text: "INICIO", link: "/beggining/introduction" },
       { text: "MANUAL", link: "/beggining/alineacion-texto" },
-      { text: "EJEMPLOS", link: "/beggining/ejemplos" }
+      { text: "EJEMPLOS", link: "/beggining/ejemplos" },
     ],
     sidebar: [
       {
         title: "Inicio",
         collapsable: false,
-        children: ["/beggining/introduction", "/beggining/fmf"]
+        children: ["/beggining/introduction", "/beggining/fmf"],
       },
       {
         title: "Guía de Bootstrap 4",
@@ -47,8 +47,9 @@ module.exports = {
           "/beggining/forms-groups",
           "/beggining/Grid",
           "/beggining/cards",
-          "/beggining/flex"
-        ]
+          "/beggining/flex",
+          "/beggining/flojo-cuest",
+        ],
       },
       {
         title: "Ejemplos",
@@ -57,9 +58,9 @@ module.exports = {
           "/beggining/formulario-ejem",
           "/beggining/ejemplos",
           "/beggining/navbar-personalizada",
-          "/beggining/listado-dproductos"
-        ]
-      }
-    ]
-  }
+          "/beggining/listado-dproductos",
+        ],
+      },
+    ],
+  },
 };

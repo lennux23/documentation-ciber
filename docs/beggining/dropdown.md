@@ -17,7 +17,7 @@ Cualquier boton ``.btn`` se puede convertir en un menú desplegable con algunos 
   </div>
 </div>
 ```
-![](../../img/dropdown-2.png)
+<dropdown></dropdown>
 ## Botones desplegables divididos
 Utiliza``.dropdown-toggle-splitun`` y crearas una linea para que se note un submenu..
  
@@ -37,7 +37,7 @@ Usamos esta clase adicional para reducir el paddinga horizontal a cada lado del 
   </div>
 </div>
 ```
-![](../../img/dropdown-3.png) <br>
+<dropdown2></dropdown2>
 Aquí mas ejemplos agregando alguna de siguientes las clases ojo, esto solo es para cambiar el color.
 - .primary  
 - .secondary

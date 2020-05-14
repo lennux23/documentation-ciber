@@ -15,4 +15,5 @@ Tan solo poniendo la clase .btn, creamos un botón mas estilizado que el por def
 <button type="button" class="btn btn-dark">Dark</button>
 <button type="button" class="btn btn-link">Link</button>
 ```
-![](../../img/Botones.png)
+<prueba> </prueba>
+

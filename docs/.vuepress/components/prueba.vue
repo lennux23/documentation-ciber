@@ -1,26 +1,13 @@
 <template>
   <div>
-    <h6>{{ mensaje }}</h6>
-    <div class="card">
-      <button type="button" class="btn btn-secondary" @click="mostrarMensaje()">
-        secondary
-      </button>
       <button type="button" class="btn btn-primary">Primary</button>
-    </div>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-link">Link</button>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      mensaje: "Hola"
-    };
-  },
-  methods: {
-    mostrarMensaje() {
-      this.mensaje = "Que onda Ulises";
-    }
-  }
-};
-</script>

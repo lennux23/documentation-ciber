@@ -39,26 +39,27 @@ La propiedad CSS margin establece el espacio de relleno requerido por todos los 
 <p class="bg-primary text-white text-center" style="height: 30px;">bg-primary</p>
 <p class="bg-secondary text-white text-center" style="height: 30px;">bg-secondary</p>
 ```
-![](../../img/margin-1.png)
+<margin></margin>
 Aquí estamos agregando mb-5 comparado con el código de arriba, desplazará el contenido ya que mb= margin-buttom:
 ```html
 <p class="bg-primary text-white text-center" style="height: 30px;">bg-primary</p>
 <p class="bg-secondary text-white text-center mt-5" style="height: 30px;">bg-secondary</p>
 ```  
-![](../../img/margin-2.png)  
+<margin2></margin2>
+
 ## Margenes
 En este ejemplo vemos como al agregar ml-5 desplazamos una caja hacia la izquierda
 ```html
 <div class="bg-dark text-white" style="height: 100px; width: 100px;">bg-dark</div>
 <div class="bg-success text-white" style="height: 100px; width: 100px;">bg-success</div>
 ```
-![](../../img/ml-1.png)  
+<pading></pading>
 ## ml-5
 ```html
 <div class="bg-dark text-white" style="height: 100px; width: 100px;">bg-dark</div>
 <div class="bg-success text-white ml-5" style="height: 100px; width: 100px;">bg-success</div>
 ```
-![](../../img/ml-2.png)
+<pading2></pading2>
 
   
 

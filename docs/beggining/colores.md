@@ -1,6 +1,12 @@
 ---
 title: Colors and Backgrounds
 ---
+
+## ¿Cómo funciona?
+Para agregar uno de los colores predeterminador basta con agregar una de las clases en Bootstrap de las mencionadas arriba Ejemplo: bg-success.  
+Para cambiar el color de texto es lo mismo.
+
+
 ## Colores de Texto y Fondos en Bootststrap 4
 Hablando de corlores en Bootstrap cuenta con alguna variedad de ellos los cuales pueden ser llamados a la pagina poniendo alguna de las siguientes clases:
 
@@ -32,4 +38,7 @@ Para cambiar el color de texto es lo mismo.
 <p class="bg-dark text-white">bg-dark</p>
 <p class="bg-white">bg-white</p>
 ```
-![](../../img/bg-color.png)
+<bg></bg>
+## Intentalo!
+Introduce una clase y visualiza como luce.
+<backg></backg>

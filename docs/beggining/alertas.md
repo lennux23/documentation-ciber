@@ -32,7 +32,7 @@ Aquí ejemplos de lo que podemos lograr:
       Esta es una Lerta .dark
     </div>
 ```
-![](../../img/alert.png)
+<alertas></alertas>
 ## Contenido adicional
 Las alertas pueden contener elementos HTML adicionales como encabezados, párrafos y divisores.
 ```html
@@ -44,4 +44,4 @@ Las alertas pueden contener elementos HTML adicionales como encabezados, párraf
   <p class="mb-0">Siempre que lo necesite, asegúrese de utilizar utilidades de margen para mantener las cosas agradables y ordenadas.</p>
 </div>
 ```
-![](../../img/alerta-2.png)
+<alertas2></alertas2>

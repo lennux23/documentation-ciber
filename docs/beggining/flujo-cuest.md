@@ -6,12 +6,12 @@ La solicitud del cliente consistía en asignar un par de cuestionarios (Cuestion
 
 ![](../../img/sisauto.png)
 
-**Como el nombre lo dice, el “Cuestionario de probabilidad” dará valor a la variable “Probabilidad” del parámetro, así como el “Cuestionario de impacto” dará valor a la variable “Impacto”.**
+**Como el nombre lo dice, el `Cuestionario de probabilidad` dará valor a la variable `Probabilidad` del parámetro, así como el `Cuestionario de impacto` dará valor a la variable `Impacto`.**
 
 Definición de datos de un ejemplo
 
 El siguiente ejemplo será sobre el cual se estará trabajando a lo largo del documento.
-Supongamos existe un subriesgo llamado “Subriesgo 1”, dicho subriesgo tendrá 4 parámetros:
+Supongamos existe un subriesgo llamado `Subriesgo 1`, dicho subriesgo tendrá 4 parámetros:
 
 - 1.- Parámetro 1
 - 2.- Parámetro 2
@@ -56,12 +56,12 @@ Si representamos el subriesgo con esta info en un objeto JSON se vería de la si
 }
 ```
 
-_NOTA: El JSON no contiene todos los campos existentes en la BD, solo se muestran los necesarios para ejemplificar._
+_\_*NOTA: El JSON no contiene todos los campos existentes en la BD, solo se muestran los necesarios para ejemplificar.*_
 
 ## Enlazamiento entre subriesgo y sus 2 cuestionarios
 
-Dado que los cuestionarios de un subriesgo serán independientes a otros cuestionarios de otros subriesgos, se necesita establecer algún dato que mapee los cuestionarios solamente a su subriesgo asignado, para poder reutilizar las API’s y las colecciones existentes, se tomaran como base las “secciones” (que son cuestionarios para la evaluación de controles) así como la colección de “questions” para almacenar las preguntas que tendrán los cuestionarios.  
-La lógica que se tiene en las apis y colecciones, nos dice que los cuestionarios y sus preguntas están vinculadas por el campo “typeOf”, lo cual en la base de dato se ve así:
+Dado que los cuestionarios de un subriesgo serán independientes a otros cuestionarios de otros subriesgos, se necesita establecer algún dato que mapee los cuestionarios solamente a su subriesgo asignado, para poder reutilizar las API’s y las colecciones existentes, se tomaran como base las `secciones` (que son cuestionarios para la evaluación de controles) así como la colección de `questions` para almacenar las preguntas que tendrán los cuestionarios.  
+La lógica que se tiene en las apis y colecciones, nos dice que los cuestionarios y sus preguntas están vinculadas por el campo `typeOf`, lo cual en la base de dato se ve así:
 
 Para el cascaron de los cuestionarios se tendrá una estructura como la siguiente:
 
@@ -91,18 +91,18 @@ Para el cascaron de los cuestionarios se tendrá una estructura como la siguient
 }
 ```
 
-En este ejemplo se tiene un cuestionario vinculado a la sección 1 de evaluación de controles, y 2 cuestionarios vinculados a nuestro subriesgo, ¿Cómo sabemos que está vinculado a nuestro subriesgo?, porque el “typeOf” se compone del id del subriesgo precedido por “IMP” o “PROB” dependiendo del tipo de cuestionario (IMP para impacto y PROB para probabilidad)
+En este ejemplo se tiene un cuestionario vinculado a la sección 1 de evaluación de controles, y 2 cuestionarios vinculados a nuestro subriesgo, ¿Cómo sabemos que está vinculado a nuestro subriesgo?, porque el `typeOf` se compone del id del subriesgo precedido por `IMP` o `PROB` dependiendo del tipo de cuestionario (IMP para impacto y PROB para probabilidad)
 
 Hasta aquí solo se puede ver el cascaron del cuestionario, ya que aún faltan las preguntas del mismo.
 
-NOTA: El campo “questions” se encuentra alojado en la colección “organizations”
+_NOTA: El campo “questions” se encuentra alojado en la colección `organizations`_
 
-Para que esos cuestionarios se crearan se invoca la función “addQuestionnaireAssociateSubrisk” localizado en el archivo “IdentifyRisk.vue”, dicha función se invoca en el momento en que un nuevo subriesgo se crea.
+Para que esos cuestionarios se crearan se invoca la función `addQuestionnaireAssociateSubrisk` localizado en el archivo `IdentifyRisk.vue`, dicha función se invoca en el momento en que un nuevo subriesgo se crea.
 
 ```js
 asyc asQuestionnaireAssociateSubrisk (newSubrisk){
 	if(this.moduleId === 'anticorruption'){
-		let paramApi = {
+		let `paramApi` = {
 			access_token: this.access_token,
 			description: newSubrisk.description,
 			typeOf: newSubrisk._id + 'IMP',
@@ -137,7 +137,7 @@ Y se manda a invocar la acción de vuex
 await this.$store.dispatch("section/newSection", paramasApi);
 ```
 
-Y así se crea el “Cuestionario de impacto”, para el “Cuestionario de probabilidad”, utilizamos los mismos datos, pero actualizamos el typeOf para que corresponda con el “Cuestionario de probabilidad” y de nuevo invocamos la acción de vuex.
+Y así se crea el `Cuestionario de impacto`, para el `Cuestionario de probabilidad`, utilizamos los mismos datos, pero actualizamos el typeOf para que corresponda con el `Cuestionario de probabilidad` y de nuevo invocamos la acción de vuex.
 
 ```js
 paramsApi.typeOf = newSubrisk._id 'PROB'
@@ -146,7 +146,7 @@ await this.$store.dispatch('section/newSection', paramApi)
 
 Y así es como se crean los cuestionarios vacíos del nuevo subriesgo.
 
-Cuando un subriesgo es eliminado se invoca el método “deleteQuestionnaireAssociateSubrisk” localizado también en el archivo “IdentifyRisk.vue”.
+Cuando un subriesgo es eliminado se invoca el método `deleteQuestionnaireAssociateSubrisk` localizado también en el archivo `IdentifyRisk.vue`.
 
 ```js
 async deleteAuestionnaireAssociateSubrisk (idSubrisk){
@@ -160,14 +160,14 @@ try {
         subTypeOf: idSubrisk
     }
 await this.$store.dispatch("selections/getSectionsProgressInfo", paramsApi)
-let sections = this.$store.state.sections.infoProgrssSections
-promise.all(sections.pam(async sections => {
-                        let param = {
-                            id: section.questions._id,
-                            access_token: this.access.tokenmm
-                        }
-                        await this.$store.dispa('sections/deleteSection', param)
-                        })
+	let sections = this.$store.state.sections.infoProgrssSections
+	promise.all(sections.pam(async sections => {
+	let param = {
+    	id: section.questions._id,
+    	access_token: this.access.tokenmm
+    }
+   		await this.$store.dispa('sections/deleteSection',param)
+    })
    )
 } catch (error){
     this.notifyError(error)
@@ -179,7 +179,7 @@ promise.all(sections.pam(async sections => {
 Donde:
 
 ```js
-let paramsApi = {
+let `paramsApi`` = {
     access token: this.access token,     //Es el token de seción
     moduleId: this.moduleId,          // Modulo al que pertenece el subriesgo
     suvTypeOf: idSubrisk,                   // Is del subriesgo al eliminar
@@ -213,7 +213,7 @@ await this.$store.dispatch('sections/deleteSection', param)
 Con esto se concluye la creación y destrucción de los cuestionarios de un subriesgo.
 
 Para las preguntas de los cuestionarios se tendrá una estructura como la siguiente:
-Para preguntas del **“Cuestionario de probabilidad”**:
+Para preguntas del **`Cuestionario de probabilidad`**:
 
 ```json
 {
@@ -243,13 +243,13 @@ Para preguntas del “Cuestionario de impacto”:
 
 ```
 
-Como se puede aprecias la pregunta “Pregunta 1 de impacto” solo afectara a los parámetros:
+Como se puede aprecias la pregunta `Pregunta 1 de impacto` solo afectara a los parámetros:
 
 - Parámetro 1
 - Parámetro 3
 - Parámetro 4
 
-Mientras que la pregunta “Pregunta 2 de impacto” solo afectara a los parámetros:
+Mientras que la pregunta `Pregunta 2 de impacto` solo afectara a los parámetros:
 
 - Parámetro 1
 - Parámetro 2
@@ -262,34 +262,34 @@ _NOTA: Para las estructuras de las preguntas, no se muestran todos los campos qu
 
 Para agregar preguntas se utiliza la siguiente pantalla
 
-**“Cuestionario de impacto”:**
+`Cuestionario de impacto`
 
-<!-- Aqui va una imagen -->
+![](../../img/bongo1.png)
 
-Ilustración 2 Vista para editar, crear y eliminar preguntas de 'Cuestionario de impacto'
+Ilustración 2 Vista para editar, crear y eliminar preguntas de `Cuestionario de impacto`
 
-**“Cuestionario de probabilidad”**
+`Cuestionario de probabilidad`
 
-<!-- Aqui va una imagen -->
+![](../../img/bongo2.png)
 
-Ilustración 3Vista para editar, crear y eliminar preguntas de 'Cuestionario de probabilidad'
+Ilustración 3Vista para editar, crear y eliminar preguntas de `Cuestionario de probabilidad`
 
-Como se puede apreciar la vista del “Cuestionario de impacto” tiene 2 columnas, una (Pregunta) para la pregunta como tal, y otra (Variables de impacto) para asignar los parámetros que sean afectados por la pregunta, mientras que “Cuestionario de probabilidad” solo tiene la columna “Pregunta”, ya que para “Probabilidad”, todos los parámetros se ven afectados de la misma forma por todas las preguntas del cuestionario.
+Como se puede apreciar la vista del `Cuestionario de impacto` tiene 2 columnas, una (Pregunta) para la pregunta como tal, y otra (Variables de impacto) para asignar los parámetros que sean afectados por la pregunta, mientras que “Cuestionario de probabilidad” solo tiene la columna “Pregunta”, ya que para `Probabilidad`, todos los parámetros se ven afectados de la misma forma por todas las preguntas del cuestionario.
 
-Una vez que se termina de editar, crear y eliminar las preguntas, el usuario puede hacer click en “GUARDAR Y CONTINUAR CON EL CUESTIONARIO” (Nota: para poder ir al cuestionario debe existir siempre al menos una pregunta, ya que, si no, no se puede continuar al cuestionario).
+Una vez que se termina de editar, crear y eliminar las preguntas, el usuario puede hacer click en `GUARDAR Y CONTINUAR CON EL CUESTIONARIO` (Nota: para poder ir al cuestionario debe existir siempre al menos una pregunta, ya que, si no, no se puede continuar al cuestionario).
 
 ### Cálculo de resultados de los cuestionarios
 
-Como ya se mencionó, para el “Cuestionario de impacto” las preguntas tienen la característica de definir que parámetros se ven afectados y cuales no, mientras que “Cuestionario de probabilidad” sus preguntas afectan a todos por igual.
+Como ya se mencionó, para el `Cuestionario de impacto` las preguntas tienen la característica de definir que parámetros se ven afectados y cuales no, mientras que `Cuestionario de probabilidad` sus preguntas afectan a todos por igual.
 
 Bien, la base del cuestionario se encuentra en las dos posibles respuestas para cada pregunta:
 
-- “Si”
-- “No”
+- `Si`
+- `No`
 
-Donde “Si” tiene un valor de 1, y “No” tiene un valor de 0, estos valores serán contabilizados al final del cuestionario, por ejemplo, si se tienen 10 respuestas, donde 6 fueron contestadas con “Si” y 4 fueron contestadas con “No”, entonces la suma nos da un total de 6, y dicho valor será el que se colocara en los parámetros, este ejemplo podría aplicar perfecto para el “Cuestionario de probabilidad”, pero para el “Cuestionario de impacto” cambia un poco el método, para este caso en lugar de tener una sola suma, se tendrán múltiples sumas, cuantas? El mismo numero de parámetros, es decir para nuestro ejemplo base, descrito en [Definición de datos de un ejemplo], tenemos 4 parámetros, por lo tanto, tendremos 4 sumas diferentes, y cada una de las sumas podemos decir que está asociada a un parámetro, ahora, con ayuda de la variable “impactVars” de “question” (pregunta), podemos saber que suma será afectada con cada pregunta.
+Donde `Si` tiene un valor de 1, y `No` tiene un valor de 0, estos valores serán contabilizados al final del cuestionario, por ejemplo, si se tienen 10 respuestas, donde 6 fueron contestadas con `Si` y 4 fueron contestadas con `No`, entonces la suma nos da un total de 6, y dicho valor será el que se colocara en los parámetros, este ejemplo podría aplicar perfecto para el `Cuestionario de probabilidad`, pero para el `Cuestionario de impacto` cambia un poco el método, para este caso en lugar de tener una sola suma, se tendrán múltiples sumas, cuantas? El mismo numero de parámetros, es decir para nuestro ejemplo base, descrito en [Definición de datos de un ejemplo], tenemos 4 parámetros, por lo tanto, tendremos 4 sumas diferentes, y cada una de las sumas podemos decir que está asociada a un parámetro, ahora, con ayuda de la variable `impactVars` de `question` (pregunta), podemos saber que suma será afectada con cada pregunta.
 
-Recordando un poco nuestras preguntas de **“Cuestionario de impacto”**:
+Recordando un poco nuestras preguntas de **`Cuestionario de impacto`**:
 
 ```json
 {
@@ -305,28 +305,28 @@ Recordando un poco nuestras preguntas de **“Cuestionario de impacto”**:
 
 ```
 
-Vemos que la pregunta uno afecta a los parámetros “Parámetro 1”, “Parámetro 3” y “Parámetro 4”, mientras que la pregunta 2 afecta a “Parámetro 1” Y “Parámetro 2”, con esto en mente entonces sabemos que tendremos 4 sumas (ya que tenemos 4 parámetros):
+Vemos que la pregunta uno afecta a los parámetros `Parámetro 1`, `Parámetro 3` y `Parámetro 4`, mientras que la pregunta 2 afecta a `Parámetro 1` Y `Parámetro 2`, con esto en mente entonces sabemos que tendremos 4 sumas (ya que tenemos 4 parámetros):
 
 - sumaParam1
 - sumaParam2
 - sumaParam3
 - sumaParam4
 
-Ahora supongamos que la pregunta 1 se response con “Si” y la pregunta 2 con “No”, el resultado final, será:
+Ahora supongamos que la pregunta 1 se response con `Si` y la pregunta 2 con `No`, el resultado final, será:
 
 - sumaParam1 = 1
 - sumaParam2 = 0
 - sumaParam3 = 1
 - sumaParam4 = 1
 
-Por otro lado, supongamos que ahora la pregunta 1 se response con “Si” y la pregunta 2 con “Si” también, el resultado final, será:
+Por otro lado, supongamos que ahora la pregunta 1 se response con `Si` y la pregunta 2 con `Si` también, el resultado final, será:
 
 - sumaParam1 = 2
 - sumaParam2 = 1
 - sumaParam3 = 1
 - sumaParam4 = 1
 
-Como se puede observar, el “Parámetro 1” tendrá un valor de 2 ya que este parámetro se ve afectado por ambas preguntas, mientras que los otros parámetros solo se ven afectada por solo 1 de las 2 preguntas.
+Como se puede observar, el `Parámetro 1` tendrá un valor de 2 ya que este parámetro se ve afectado por ambas preguntas, mientras que los otros parámetros solo se ven afectada por solo 1 de las 2 preguntas.
 
 Con este ultimo ejemplo si lo reflejamos en la estructura JSON tendríamos:
 
@@ -373,7 +373,7 @@ Para completar este ejemplo con los valores de probabilidad, vamos a suponer que
 }
 ```
 
-Son contestadas con 2 “Si”, lo cual nos da como resultado un 2 que se vera reflejado en todos los parámetros, quedando de la siguiente forma:
+Son contestadas con 2 `Si`, lo cual nos da como resultado un 2 que se vera reflejado en todos los parámetros, quedando de la siguiente forma:
 
 ```json
 params: [
@@ -404,6 +404,6 @@ params: [
 	]
 ```
 
-Nota: Los “labels” asignados a los valores de “impacto” y “probabilidad” se pueden consultar en el Excel enviado por parte del cliente.
+Nota: Los `labels` asignados a los valores de `impacto` y `probabilidad` se pueden consultar en el Excel enviado por parte del cliente.
 
 Y de esta forma se completa el ciclo de los cuestionarios para el llenado de resultados de los diversos parámetros asociados a un subriesgo.

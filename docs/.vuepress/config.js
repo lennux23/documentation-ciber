@@ -48,13 +48,13 @@ module.exports = {
           "/beggining/Grid",
           "/beggining/cards",
           "/beggining/flex",
-          "/beggining/flojo-cuest",
         ],
       },
       {
         title: "Ejemplos",
         collapsable: false,
         children: [
+          "/beggining/flujo-cuest",
           "/beggining/formulario-ejem",
           "/beggining/ejemplos",
           "/beggining/navbar-personalizada",

@@ -54,10 +54,9 @@ module.exports = {
         title: "Ejemplos",
         collapsable: false,
         children: [
-          "/beggining/flujo-cuest",
           "/beggining/formulario-ejem",
-          "/beggining/ejemplos",
-          "/beggining/navbar-personalizada",
+          "/beggining/ejemploLogin",
+          "/beggining/navbarEjemplos",
           "/beggining/listado-dproductos",
         ],
       },
